@@ -99,16 +99,16 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         POSTS[post_id]["fa"],
         show_alert=True
     )
-    def main():
-      app = Application.builder().token(TOKEN).build()
+def main():
+  app = Application.builder().token(TOKEN).build()
 
-      app.add_handler(CommandHandler("start", start))
-      app.add_handler(CommandHandler("post", post))
-      app.add_handler(CallbackQueryHandler(button))
+  app.add_handler(CommandHandler("start", start))
+  app.add_handler(CommandHandler("post", post))
+  app.add_handler(CallbackQueryHandler(button))
 
-      print("Bot Started...")
+  print("Bot Started...")
 
-      app.run_polling()
+  app.run_polling()
 
 
 if __name__ == "__main__":
