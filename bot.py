@@ -100,15 +100,15 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         show_alert=True
     )
     def main():
-    app = Application.builder().token(TOKEN).build()
+      app = Application.builder().token(TOKEN).build()
 
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("post", post))
-    app.add_handler(CallbackQueryHandler(button))
+      app.add_handler(CommandHandler("start", start))
+      app.add_handler(CommandHandler("post", post))
+      app.add_handler(CallbackQueryHandler(button))
 
-    print("Bot Started...")
+      print("Bot Started...")
 
-    app.run_polling()
+      app.run_polling()
 
 
 if __name__ == "__main__":
