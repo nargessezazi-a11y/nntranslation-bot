@@ -29,7 +29,8 @@ if os.path.exists(DATA_FILE):
         POSTS = json.load(f)
 else:
     POSTS = {}
-    
+
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "سلام 👋\n"
@@ -62,7 +63,6 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "tr": turkish.strip(),
         "fa": persian.strip()
     }
-
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(POSTS, f, ensure_ascii=False, indent=4)
 
@@ -79,7 +79,8 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
         turkish.strip(),
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
-    
+
+
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
 
@@ -98,9 +99,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         POSTS[post_id]["fa"],
         show_alert=True
     )
-
-
-def main():
+    def main():
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
