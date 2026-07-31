@@ -80,9 +80,11 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("BUTTON WORKED")
+
     query = update.callback_query
+
 
     await query.answer()
 
