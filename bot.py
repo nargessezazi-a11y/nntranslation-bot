@@ -30,7 +30,7 @@ if os.path.exists(DATA_FILE):
 else:
     POSTS = {}
     
-  async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "سلام 👋\n"
         "من ربات ترجمه هستم.\n\n"
