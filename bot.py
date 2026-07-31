@@ -29,6 +29,7 @@ if os.path.exists(DATA_FILE):
         POSTS = json.load(f)
 else:
     POSTS = {}
+    
   async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "سلام 👋\n"
@@ -78,6 +79,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
         turkish.strip(),
         reply_markup=InlineKeyboardMarkup(keyboard)
   )
+    
   async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
 
