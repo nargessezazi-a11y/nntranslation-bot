@@ -101,8 +101,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    await query.message.reply_text(
-        POSTS[post_id]["fa"]
+    await query.answer(
+      POSTS[post_id]["fa"],
+      show_alert=True
     )
     
     
