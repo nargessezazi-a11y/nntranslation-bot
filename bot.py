@@ -85,17 +85,21 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     query = update.callback_query
 
-
     await query.answer()
+
     print("CALLBACK DATA:", query.data)
+
     post_id = query.data.replace("translate_", "")
+
+    print("AFTER POST ID")
+
     print("POSTS:", POSTS)
     print("POST ID:", post_id, type(post_id))
-    if post_id not in POSTS:
-        await query.answer(
-            "ترجمه پیدا نشد!",
-            show_alert=True
-        )
+
+    await query.answer(
+        "TEST OK",
+        show_alert=True
+    )
         return
 
     await query.answer(
