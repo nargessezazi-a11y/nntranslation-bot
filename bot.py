@@ -78,7 +78,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         turkish.strip(),
         reply_markup=InlineKeyboardMarkup(keyboard)
-  )
+    )
     
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
