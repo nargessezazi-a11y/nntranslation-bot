@@ -100,12 +100,13 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "TEST OK",
         show_alert=True
     )
-        return
+    return
 
     await query.answer(
         POSTS[post_id]["fa"],
         show_alert=True
     )
+    
 def main():
   app = Application.builder().token(TOKEN).build()
 
