@@ -79,7 +79,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global LAST_VOICE
 
     if LAST_VOICE:
-    await context.bot.send_voice(
+        await context.bot.send_voice(
         chat_id=CHANNEL_ID,
         voice=LAST_VOICE,
         caption=turkish.strip(),
@@ -89,7 +89,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     LAST_VOICE = None
 
     else:
-    await context.bot.send_message(
+        await context.bot.send_message(
         chat_id=CHANNEL_ID,
         text=turkish.strip(),
         reply_markup=InlineKeyboardMarkup(keyboard)
