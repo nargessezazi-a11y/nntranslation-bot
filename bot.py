@@ -12,7 +12,9 @@ from telegram.ext import (
     Application,
     CommandHandler,
     CallbackQueryHandler,
+    MessageHandler,
     ContextTypes,
+    filters,
 )
 
 logging.basicConfig(
@@ -30,7 +32,7 @@ if os.path.exists(DATA_FILE):
 else:
     POSTS = {}
 
-
+LAST_VOICE = None
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "سلام 👋\n"
@@ -84,7 +86,16 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
     "✅ پست داخل کانال ارسال شد."
     )
+async def voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    global LAST_VOICE
 
+    LAST_VOICE = update.message.voice.file_id
+
+    await update.message.reply_text(
+        "✅ ویس ذخیره شد.\n\n"
+        "فرمت درست:\n"
+        "/post متن ترکی | ترجمه فارسی"
+    )
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("BUTTON WORKED")
 
@@ -117,6 +128,7 @@ def main():
 
   app.add_handler(CommandHandler("start", start))
   app.add_handler(CommandHandler("post", post))
+  app.add_handler(MessageHandler(filters.VOICE, voice))  
   app.add_handler(CallbackQueryHandler(button))
 
   print("Bot Started...")
