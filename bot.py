@@ -85,7 +85,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     query = update.callback_query
 
-    await query.answer()
+
 
     print("CALLBACK DATA:", query.data)
 
