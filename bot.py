@@ -21,7 +21,7 @@ logging.basicConfig(
 )
 
 TOKEN = os.getenv("BOT_TOKEN")
-
+CHANNEL_ID = -1002876005137
 DATA_FILE = "posts.json"
 
 if os.path.exists(DATA_FILE):
@@ -75,10 +75,15 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
     ]
 
-    await update.message.reply_text(
-        turkish.strip(),
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+    await context.bot.send_message(
+    chat_id=CHANNEL_ID,
+    text=turkish.strip(),
+    reply_markup=InlineKeyboardMarkup(keyboard)
+)
+
+await update.message.reply_text(
+    "✅ پست داخل کانال ارسال شد."
+        )
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("BUTTON WORKED")
