@@ -79,11 +79,11 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id=CHANNEL_ID,
     text=turkish.strip(),
     reply_markup=InlineKeyboardMarkup(keyboard)
-)
+    )
 
-await update.message.reply_text(
+    await update.message.reply_text(
     "✅ پست داخل کانال ارسال شد."
-        )
+    )
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("BUTTON WORKED")
