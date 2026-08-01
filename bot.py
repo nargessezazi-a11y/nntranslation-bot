@@ -69,7 +69,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [
             InlineKeyboardButton(
-                "🔹️𝐓𝐫𝐚𝐧𝐬𝐥𝐚𝐭𝐢𝐨𝐧🔹️",
+                "𝐓𝐫𝐚𝐧𝐬𝐥𝐚𝐭𝐢𝐨𝐧",
                 callback_data=f"translate_{post_id}"
             )
         ]
