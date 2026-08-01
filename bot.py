@@ -80,23 +80,23 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if LAST_VOICE:
         await context.bot.send_voice(
-        chat_id=CHANNEL_ID,
-        voice=LAST_VOICE,
-        caption=turkish.strip(),
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+            chat_id=CHANNEL_ID,
+            voice=LAST_VOICE,
+            caption=turkish.strip(),
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
 
-    LAST_VOICE = None
+        LAST_VOICE = None
 
     else:
         await context.bot.send_message(
-        chat_id=CHANNEL_ID,
-        text=turkish.strip(),
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+            chat_id=CHANNEL_ID,
+            text=turkish.strip(),
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
 
     await update.message.reply_text(
-    "✅ پست داخل کانال ارسال شد."
+        "✅ پست داخل کانال ارسال شد."
     )
     
 async def voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
