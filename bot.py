@@ -76,10 +76,9 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
         ]
     ]
+    global LAST_VOICE
 
-global LAST_VOICE
-
-if LAST_VOICE:
+    if LAST_VOICE:
     await context.bot.send_voice(
         chat_id=CHANNEL_ID,
         voice=LAST_VOICE,
@@ -89,16 +88,17 @@ if LAST_VOICE:
 
     LAST_VOICE = None
 
-else:
+    else:
     await context.bot.send_message(
         chat_id=CHANNEL_ID,
         text=turkish.strip(),
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-await update.message.reply_text(
+    await update.message.reply_text(
     "✅ پست داخل کانال ارسال شد."
     )
+    
 async def voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global LAST_VOICE
 
