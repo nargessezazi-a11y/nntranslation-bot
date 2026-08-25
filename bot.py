@@ -23,7 +23,7 @@ logging.basicConfig(
 )
 
 TOKEN = os.getenv("BOT_TOKEN")
-CHANNEL_ID = -1002876005137
+CHANNEL_ID = -1002236605902
 DATA_FILE = "posts.json"
 
 if os.path.exists(DATA_FILE):
